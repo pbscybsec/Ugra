@@ -1,0 +1,14 @@
+
+ADOBE VICTIM DATA => Informations 
+/////////////////////////////////////////////////////// 
+IP: 127.0.0.1 
+Full-Date: 16-02-2024 11:50:22 
+Country:  
+Region:  
+City:  
+User-Agent: Mozilla/5.0 (Windows NT 10.0; rv:102.0) Gecko/20100101 Firefox/102.0 
+OS-System: Windows 
+Username: aryan@gmail.com
+Password: 123456
+/////////////////////////////////////////////////////// 
+

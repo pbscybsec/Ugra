@@ -1,0 +1,48 @@
+
+ADOBE VICTIM FINGERPRINTS => Informations 
+/////////////////////////////////////////////////////// 
+IP: 127.0.0.1 
+Full-Date: 16-02-2024 11:50:08 
+Country:  
+Region:  
+City:  
+User-Agent: Mozilla/5.0 (Windows NT 10.0; rv:102.0) Gecko/20100101 Firefox/102.0 
+OS-System: Windows 
+/////////////////////////////////////////////////////// 
+
+
+ADOBE VICTIM FINGERPRINTS => Informations 
+/////////////////////////////////////////////////////// 
+IP: 127.0.0.1 
+Full-Date: 16-02-2024 11:50:14 
+Country:  
+Region:  
+City:  
+User-Agent: Mozilla/5.0 (Windows NT 10.0; rv:102.0) Gecko/20100101 Firefox/102.0 
+OS-System: Windows 
+/////////////////////////////////////////////////////// 
+
+
+FREEFIRE VICTIM FINGERPRINTS => Informations 
+/////////////////////////////////////////////////////// 
+IP: 127.0.0.1 
+Full-Date: 16-02-2024 11:59:57 
+Country:  
+Region:  
+City:  
+User-Agent: Mozilla/5.0 (Windows NT 10.0; rv:102.0) Gecko/20100101 Firefox/102.0 
+OS-System: Windows 
+/////////////////////////////////////////////////////// 
+
+
+FREEFIRE VICTIM FINGERPRINTS => Informations 
+/////////////////////////////////////////////////////// 
+IP: 127.0.0.1 
+Full-Date: 17-02-2024 12:00:30 
+Country:  
+Region:  
+City:  
+User-Agent: Mozilla/5.0 (Windows NT 10.0; rv:102.0) Gecko/20100101 Firefox/102.0 
+OS-System: Windows 
+/////////////////////////////////////////////////////// 
+
