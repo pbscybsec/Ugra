@@ -1,6 +1,7 @@
 <h2 align="center"><u>Ugra - Phishing Simulation Tool</u></h2>
 
-![Phishing simulation tool aimed at cybersecurity training and awareness.](https://raw.githubusercontent.com/pbscybsec/Ugra/main/logo.webp)
+<img src="https://raw.githubusercontent.com/pbscybsec/Ugra/main/logo.webp" alt="Phishing simulation tool aimed at cybersecurity training and awareness." width="200" height="200">
+
 <h4 align="center"> Phishing simulation tool aimed at cybersecurity training and awareness. </h4>
 
 <p align="center">
