@@ -1383,7 +1383,7 @@ menu() {
  { clear; header; echo; }
 
 	cat <<- EOF
-		${GREEN}[${WHITE}1${GREEN}]${CYAN} Start AttackS
+		${GREEN}[${WHITE}1${GREEN}]${CYAN} Start Attack
 		${GREEN}[${WHITE}0${GREEN}]${ORANGE} Exit
 
 
@@ -1396,7 +1396,7 @@ menu() {
 	    1) attack;;
 
 	    help) help;;
-S
+
 		0)
 		echo -ne "\n${GREEN}[${WHITE}!${GREEN}]${ORANGE} Thanks for using Ugra "${WHITE}
 		sleep 2
