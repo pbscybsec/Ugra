@@ -1519,7 +1519,7 @@ menu() {
 	    help) help;;
 
 		0)
-		echo -ne "\n${GREEN}[${WHITE}!${GREEN}]${ORANGE} Thanks for using mip22 "${WHITE}
+		echo -ne "\n${GREEN}[${WHITE}!${GREEN}]${ORANGE} Thanks for using Ugra "${WHITE}
 		sleep 2
 		clear
 		exit 1;;

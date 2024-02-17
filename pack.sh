@@ -24,7 +24,7 @@ BLACK="$(printf '\033[30m')"
 
 
 	if [[ `command -v php` && `command -v wget` && `command -v curl` && `command -v unzip` ]]; then
-		echo -e "\n${GREEN}[${WHITE}+${GREEN}]${GREEN} Mip packages already installed." 
+		echo -e "\n${GREEN}[${WHITE}+${GREEN}]${GREEN} Ugra packages already installed."
 		sleep 1
 	
 	else	
