@@ -10,7 +10,6 @@ CYAN="$(printf '\033[36m')"
 WHITE="$(printf '\033[37m')" 
 BLACK="$(printf '\033[30m')"
 
-00
 echo -e "\n${GREEN}[${WHITE}+${GREEN}]${CYAN} Installing required tunnels."
 
 
